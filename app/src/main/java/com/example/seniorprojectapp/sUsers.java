@@ -2,6 +2,7 @@ package com.example.seniorprojectapp;
 
 public class sUsers {
     public String fullName, phone, email;
+
     public sUsers(){
 
     }

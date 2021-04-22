@@ -35,18 +35,18 @@ public class user_register extends AppCompatActivity implements View.OnClickList
 
         rAuth = FirebaseAuth.getInstance();
 
-        header = (TextView) findViewById(R.id.header);
+        header = findViewById(R.id.header);
         header.setOnClickListener(this);
 
         user_register = (Button) findViewById(R.id.register_button);
         user_register.setOnClickListener(this);
 
-        editTextFullName = (EditText) findViewById(R.id.fullName);
-        editTextEmail = (EditText) findViewById(R.id.email);
-        editTextPassword = (EditText) findViewById(R.id.password);
-        editTextPhone = (EditText) findViewById(R.id.phone);
+        editTextFullName = findViewById(R.id.fullName);
+        editTextEmail = findViewById(R.id.email);
+        editTextPassword = findViewById(R.id.password);
+        editTextPhone = findViewById(R.id.phone);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar2);
+        progressBar = findViewById(R.id.progressBar2);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class user_register extends AppCompatActivity implements View.OnClickList
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.setError("Provide A Valid Email");
+            editTextEmail.setError("Provide A Valid Email!");
             editTextEmail.requestFocus();
             return;
         }
@@ -93,7 +93,7 @@ public class user_register extends AppCompatActivity implements View.OnClickList
         }
 
         if (password.length() < 6){
-            editTextPassword.setError("Min Password Length is 6 Characters");
+            editTextPassword.setError("Min Password Length is 6 Characters!");
             editTextPassword.requestFocus();
             return;
         }

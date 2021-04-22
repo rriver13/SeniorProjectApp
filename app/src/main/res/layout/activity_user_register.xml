@@ -141,6 +141,7 @@
         android:layout_marginRight="16dp"
         android:fontFamily="@font/averia_sans_libre_light"
         android:text="Register"
+        android:textStyle="bold"
         app:backgroundTint="#3E57E3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
