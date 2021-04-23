@@ -1,8 +1,5 @@
 package com.example.seniorprojectapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -13,17 +10,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.regex.Pattern;
-
 public class user_register extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView header, user_register;
+    private TextView header, user_register, register_account;
     private EditText editTextFullName, editTextEmail, editTextPassword, editTextPhone;
     private ProgressBar progressBar;
     private FirebaseAuth rAuth;
@@ -47,18 +45,24 @@ public class user_register extends AppCompatActivity implements View.OnClickList
         editTextPhone = findViewById(R.id.phone);
 
         progressBar = findViewById(R.id.progressBar2);
+
+        register_account = findViewById(R.id.login_link);
+        register_account.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.header:
-            startActivity(new Intent(this, MainActivity.class));
+
+            case R.id.login_link:
+                startActivity(new Intent(this, MainActivity.class));
             break;
 
             case R.id.register_button:
                 register_users();
                 break;
+
         }
 
     }
@@ -119,12 +123,11 @@ public class user_register extends AppCompatActivity implements View.OnClickList
 
                             if(task.isSuccessful()){
                                 Toast.makeText(com.example.seniorprojectapp.user_register.this, "This User Has Been Registered", Toast.LENGTH_LONG).show();
-                                progressBar.setVisibility(View.GONE);
 
                             }else {
                                 Toast.makeText(com.example.seniorprojectapp.user_register.this, "Failed to Register the User. Try Again!", Toast.LENGTH_LONG).show();
-                                progressBar.setVisibility(View.GONE);
                             }
+                            progressBar.setVisibility(View.GONE);
                         }
                     });
 
